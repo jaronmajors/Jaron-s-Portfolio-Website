@@ -739,6 +739,17 @@ p{ margin:0 0 1em; }
 }
 .article-back:hover{ background:var(--ink); color:var(--paper); }
 
+.article-disclaimer{
+  margin-top:48px;
+  padding-top:20px;
+  border-top:1px dashed var(--line);
+  font-family:var(--font-mono);
+  font-size:11px;
+  line-height:1.6;
+  color:var(--muted);
+  max-width:70ch;
+}
+
 /* ==========================================================================
    SCROLL REVEAL
    ========================================================================== */
