@@ -240,6 +240,31 @@ p{ margin:0 0 1em; }
   max-width:62ch;
 }
 
+.about__intro{
+  display:flex;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:20px;
+}
+.about__photo{
+  flex:none;
+  width:112px;
+  aspect-ratio:1/1;
+  margin:0;
+  overflow:hidden;
+  border:1px solid var(--ink);
+  border-radius:var(--radius);
+  background:var(--blue-pale);
+}
+.about__photo img{
+  width:100%; height:100%;
+  object-fit:cover;
+}
+.about__intro .section-head{ margin:0; }
+@media (max-width:520px){
+  .about__intro{ flex-direction:column; align-items:flex-start; }
+}
+
 .links{
   display:flex;
   flex-wrap:wrap;
