@@ -411,7 +411,6 @@ body.has-hero .titleblock.is-stuck{
 .hero__figure [data-c="line"]{ stroke:var(--line); }
 .hero__figure .hero-face{ fill:var(--surface); }
 .hero__figure .hero-top{ fill:var(--blue-pale); }
-.hero__figure .hero-hole{ fill:none; stroke:var(--ink); }
 .hero__figure .hero-axis{ stroke:var(--blue); stroke-dasharray:4 5; opacity:.22; }
 .hero__figure text{
   font-family:var(--font-mono);
@@ -435,10 +434,20 @@ body.has-hero .titleblock.is-stuck{
   0%,100%{ transform:translateY(0) rotate(-0.35deg); }
   50%{ transform:translateY(-10px) rotate(0.35deg); }
 }
+@keyframes hero-spin{
+  0%,100%{ transform:rotate(-19deg); }
+  50%{ transform:rotate(19deg); }
+}
 
-/* Exploded view — JS tweens each part's SVG transform attribute along
-   the vertical assembly axis (works in every SVG renderer). */
+/* Exploded view — JS tweens each part's SVG transform attribute up the
+   assembly axis (works in every SVG renderer); while apart, the whole
+   stack turns slowly back and forth about the centerline. */
 .hero__figure.is-exploded .hero-axis{ opacity:.4; }
+.hero__figure.is-exploded .hero-parts{
+  animation:hero-spin 7s ease-in-out infinite;
+  transform-box:view-box;
+  transform-origin:200px 270px;
+}
 
 .hero__scroll{
   align-self:center;
@@ -478,6 +487,7 @@ body.has-hero .titleblock.is-stuck{
   .hero__figure svg{ animation:none; }
   .hero__figure [data-draw]{ stroke-dashoffset:0; animation:none; }
   .hero__figure [data-fade]{ opacity:1; animation:none; }
+  .hero__figure.is-exploded .hero-parts{ animation:none; }
   .hero__scroll-line::after{ animation:none; opacity:0; }
 }
 
