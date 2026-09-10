@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Jaron Majors — Mechanical Engineer</title>
 <meta name="description" content="Jaron Majors — Mechanical Engineering portfolio: medical device design, testing, and aerospace projects.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F4F5F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12171B" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="has-hero">
 
 <!-- corner registration marks -->
 <div class="reg reg--tl" aria-hidden="true"></div>
@@ -24,12 +27,12 @@
     <div class="titleblock__id">
       <span class="titleblock__mark">JM</span>
       <div>
-        <h1 class="titleblock__name">Jaron Majors</h1>
+        <p class="titleblock__name">Jaron Majors</p>
         <p class="titleblock__role">Mechanical Engineer</p>
       </div>
     </div>
 
-    <nav class="titleblock__nav" aria-label="Primary">
+    <nav class="titleblock__nav" data-nav aria-label="Primary">
       <a href="#about"><span class="nav-num">01</span>About</a>
       <a href="#projects"><span class="nav-num">02</span>Projects</a>
       <a href="#personal"><span class="nav-num">03</span>Personal</a>
@@ -44,6 +47,52 @@
 </header>
 
 <main>
+
+  <!-- ============ HERO / COVER ============ -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__lead">
+        <p class="hero__eyebrow"><span class="hero__sheet">Sheet 00</span> Portfolio — Cover</p>
+        <h1 class="hero__name">Jaron<br>Majors</h1>
+        <p class="hero__tagline">Mechanical engineer — experience in R&amp;D, test method development, and design verification.</p>
+        <p class="hero__meta">Palo Alto, CA · Open to full-time roles</p>
+        <div class="hero__actions">
+          <a class="link-chip link-chip--accent" href="#projects"><span class="link-chip__icon">→</span> View projects</a>
+          <a class="link-chip" href="#about">About me</a>
+        </div>
+      </div>
+
+      <div class="hero__figure" aria-hidden="true">
+        <svg viewBox="0 0 400 400" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+             xmlns="http://www.w3.org/2000/svg" role="presentation">
+          <!-- drawing-frame corner ticks -->
+          <path data-draw data-c="line" style="--d:0s"   stroke-width="1.2" pathLength="1" d="M14 32 L14 14 L32 14"/>
+          <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 32 L386 14 L368 14"/>
+          <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M14 368 L14 386 L32 386"/>
+          <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 368 L386 386 L368 386"/>
+          <!-- isometric block -->
+          <path data-fill d="M200 150 L300 208 L200 266 L100 208 Z"/>
+          <path data-draw style="--d:.35s" stroke-width="1.75" pathLength="1" d="M200 150 L300 208 L200 266 L100 208 Z"/>
+          <path data-draw style="--d:.55s" stroke-width="1.75" pathLength="1" d="M200 266 L300 208 L300 304 L200 362 Z"/>
+          <path data-draw style="--d:.75s" stroke-width="1.75" pathLength="1" d="M200 266 L100 208 L100 304 L200 362 Z"/>
+          <!-- exploded top face lifting off -->
+          <path data-draw data-c="blue" style="--d:1.05s" opacity=".85" pathLength="1" d="M200 92 L300 150 L200 208 L100 150 Z"/>
+          <line data-draw data-c="blue" style="--d:1.2s"  opacity=".7" stroke-width="1.1" pathLength="1" x1="200" y1="266" x2="200" y2="208"/>
+          <line data-draw data-c="blue" style="--d:1.25s" opacity=".7" stroke-width="1.1" pathLength="1" x1="300" y1="208" x2="300" y2="150"/>
+          <line data-draw data-c="blue" style="--d:1.3s"  opacity=".7" stroke-width="1.1" pathLength="1" x1="100" y1="208" x2="100" y2="150"/>
+          <!-- small part lifting further off -->
+          <path data-draw data-c="blue" style="--d:1.5s" opacity=".85" pathLength="1" d="M200 20 L238 42 L200 64 L162 42 Z"/>
+          <line data-draw data-c="blue" style="--d:1.62s" opacity=".5" stroke-width="1.1" pathLength="1" x1="200" y1="92" x2="200" y2="64"/>
+          <text data-fill x="20" y="30" font-size="10">JM&#8209;001</text>
+        </svg>
+      </div>
+    </div>
+
+    <a class="hero__scroll" href="#about">
+      <span>Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
 
   <!-- ============ ABOUT ============ -->
   <section class="sheet" id="about">
@@ -158,7 +207,7 @@
       <article class="project reveal">
         <a class="project__link-overlay" href="projects/loading-tool.html" aria-label="Read the full write-up: Leadless Pacemaker Loading Tool"></a>
         <div class="project__media">
-          <img src="assets/img/project-loadingtool.png" alt="AVEIR CSP IDE loading tool prototype with callouts showing latch, ball funnel, and docking cap cradle features">
+          <img loading="lazy" decoding="async" src="assets/img/project-loadingtool.png" alt="AVEIR CSP IDE loading tool prototype with callouts showing latch, ball funnel, and docking cap cradle features">
           <span class="fig">FIG. 01</span>
         </div>
         <div class="project__body">
@@ -184,7 +233,7 @@
       <article class="project reveal">
         <a class="project__link-overlay" href="projects/fatigue.html" aria-label="Read the full write-up: Braided Body Fatigue Characterization"></a>
         <div class="project__media">
-          <img src="assets/img/project-fatigue.png" alt="Bend fatigue test setup and fracture micrographs of a braided pacemaker lead body">
+          <img loading="lazy" decoding="async" src="assets/img/project-fatigue.png" alt="Bend fatigue test setup and fracture micrographs of a braided pacemaker lead body">
           <span class="fig">FIG. 02</span>
         </div>
         <div class="project__body">
@@ -209,7 +258,7 @@
       <article class="project reveal">
         <a class="project__link-overlay" href="projects/tensile.html" aria-label="Read the full write-up: Braided Body Tensile Pull Testing"></a>
         <div class="project__media">
-          <img src="assets/img/project-tensile.png" alt="Diagram of braided body test conditions showing undamaged control, 25 percent fracture depth, and 50 percent fracture depth">
+          <img loading="lazy" decoding="async" src="assets/img/project-tensile.png" alt="Diagram of braided body test conditions showing undamaged control, 25 percent fracture depth, and 50 percent fracture depth">
           <span class="fig">FIG. 03</span>
         </div>
         <div class="project__body">
@@ -234,7 +283,7 @@
       <article class="project reveal">
         <a class="project__link-overlay" href="projects/lleap.html" aria-label="Read the full write-up: Lower Limb Exoskeleton Assist Project (LLEAP)"></a>
         <div class="project__media">
-          <img src="assets/img/project-lleap.jpg" alt="Prototype exoskeleton suspended in a bench test rig, showing hip actuators, structural frame, and soft-goods harness">
+          <img loading="lazy" decoding="async" src="assets/img/project-lleap.jpg" alt="Prototype exoskeleton suspended in a bench test rig, showing hip actuators, structural frame, and soft-goods harness">
           <span class="fig">FIG. 04</span>
         </div>
         <div class="project__body">
@@ -279,7 +328,7 @@
       <article class="entry reveal">
         <a class="entry__link-overlay" href="personal/japan-trip-2026.html" aria-label="View photos: Japan Trip Summer 2026"></a>
         <div class="entry__media">
-          <img src="assets/img/personal/japan-trip-2026/01.webp" alt="Plush Pokémon toy held up in front of Osaka Castle across the moat">
+          <img loading="lazy" decoding="async" src="assets/img/personal/japan-trip-2026/01.webp" alt="Plush Pokémon toy held up in front of Osaka Castle across the moat">
         </div>
         <div class="entry__caption">Japan Trip Summer 2026</div>
       </article>
@@ -293,6 +342,13 @@
   <span>Jaron Majors © 2026</span>
   <a href="#top">Back to top ↑</a>
 </footer>
+
+<!-- ============ MOBILE BOTTOM TAB BAR ============ -->
+<nav class="tabbar" data-nav aria-label="Primary mobile">
+  <a href="#about"><span class="tab-num">01</span>About</a>
+  <a href="#projects"><span class="tab-num">02</span>Projects</a>
+  <a href="#personal"><span class="tab-num">03</span>Personal</a>
+</nav>
 
 <script src="js/main.js"></script>
 </body>
