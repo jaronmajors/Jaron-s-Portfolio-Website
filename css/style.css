@@ -556,7 +556,7 @@ body.has-hero .titleblock.is-stuck{
 }
 .about__photo{
   flex:none;
-  width:clamp(96px, 22vw, 112px);
+  width:clamp(132px, 30vw, 172px);
   aspect-ratio:1/1;
   margin:0;
   overflow:hidden;
