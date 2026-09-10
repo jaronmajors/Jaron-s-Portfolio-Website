@@ -66,25 +66,38 @@
       <div class="hero__figure" aria-hidden="true">
         <svg viewBox="0 0 400 400" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
              xmlns="http://www.w3.org/2000/svg" role="presentation">
+          <!-- exploded-view centerline (revealed on hover) -->
+          <line class="hero-centerline" x1="200" y1="46" x2="200" y2="300" stroke-width="1.2"/>
+
           <!-- drawing-frame corner ticks -->
           <path data-draw data-c="line" style="--d:0s"   stroke-width="1.2" pathLength="1" d="M14 32 L14 14 L32 14"/>
           <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 32 L386 14 L368 14"/>
           <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M14 368 L14 386 L32 386"/>
           <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 368 L386 386 L368 386"/>
-          <!-- isometric block -->
-          <path data-fill d="M200 150 L300 208 L200 266 L100 208 Z"/>
-          <path data-draw style="--d:.35s" stroke-width="1.75" pathLength="1" d="M200 150 L300 208 L200 266 L100 208 Z"/>
-          <path data-draw style="--d:.55s" stroke-width="1.75" pathLength="1" d="M200 266 L300 208 L300 304 L200 362 Z"/>
-          <path data-draw style="--d:.75s" stroke-width="1.75" pathLength="1" d="M200 266 L100 208 L100 304 L200 362 Z"/>
-          <!-- exploded top face lifting off -->
-          <path data-draw data-c="blue" style="--d:1.05s" opacity=".85" pathLength="1" d="M200 92 L300 150 L200 208 L100 150 Z"/>
-          <line data-draw data-c="blue" style="--d:1.2s"  opacity=".7" stroke-width="1.1" pathLength="1" x1="200" y1="266" x2="200" y2="208"/>
-          <line data-draw data-c="blue" style="--d:1.25s" opacity=".7" stroke-width="1.1" pathLength="1" x1="300" y1="208" x2="300" y2="150"/>
-          <line data-draw data-c="blue" style="--d:1.3s"  opacity=".7" stroke-width="1.1" pathLength="1" x1="100" y1="208" x2="100" y2="150"/>
-          <!-- small part lifting further off -->
-          <path data-draw data-c="blue" style="--d:1.5s" opacity=".85" pathLength="1" d="M200 20 L238 42 L200 64 L162 42 Z"/>
-          <line data-draw data-c="blue" style="--d:1.62s" opacity=".5" stroke-width="1.1" pathLength="1" x1="200" y1="92" x2="200" y2="64"/>
-          <text data-fill x="20" y="30" font-size="10">JM&#8209;001</text>
+
+          <!-- isometric block, built from four stacked slabs that pull apart on hover -->
+          <g class="hero-part" data-lvl="0" data-fade style="--d:.35s">
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 255 L104 228 L104 256 L200 283 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 255 L296 228 L296 256 L200 283 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 201 L296 228 L200 255 L104 228 Z"/>
+          </g>
+          <g class="hero-part" data-lvl="1" data-fade style="--d:.55s">
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 227 L104 200 L104 228 L200 255 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 227 L296 200 L296 228 L200 255 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 173 L296 200 L200 227 L104 200 Z"/>
+          </g>
+          <g class="hero-part" data-lvl="2" data-fade style="--d:.75s">
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 199 L104 172 L104 200 L200 227 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 199 L296 172 L296 200 L200 227 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 145 L296 172 L200 199 L104 172 Z"/>
+          </g>
+          <g class="hero-part" data-lvl="3" data-fade style="--d:.95s">
+            <path class="hero-face" data-draw stroke-width="1.75" pathLength="1" d="M200 171 L104 144 L104 172 L200 199 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.75" pathLength="1" d="M200 171 L296 144 L296 172 L200 199 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.75" pathLength="1" d="M200 117 L296 144 L200 171 L104 144 Z"/>
+          </g>
+
+          <text data-fade x="20" y="30" font-size="10" style="--d:1.15s">JM&#8209;001</text>
         </svg>
       </div>
     </div>
