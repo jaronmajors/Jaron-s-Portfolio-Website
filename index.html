@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body class="has-hero">
 
@@ -66,48 +66,42 @@
       <div class="hero__figure" aria-hidden="true">
         <svg viewBox="0 0 400 400" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
              xmlns="http://www.w3.org/2000/svg" role="presentation">
-          <!-- drawing-frame corner ticks -->
-          <path data-draw data-c="line" style="--d:0s"   stroke-width="1.2" pathLength="1" d="M14 32 L14 14 L32 14"/>
-          <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 32 L386 14 L368 14"/>
-          <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M14 368 L14 386 L32 386"/>
-          <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 368 L386 386 L368 386"/>
+          <!-- static aperture: twin hexagons + corner ticks -->
+          <path class="hero-frame" data-draw style="--d:0s" pathLength="1" d="M200 50 L329.9 125 L329.9 275 L200 350 L70.1 275 L70.1 125 Z"/>
+          <path class="hero-frame" data-draw style="--d:.05s" pathLength="1" d="M275 70.1 L350 200 L275 329.9 L125 329.9 L50 200 L125 70.1 Z"/>
+          <path class="hero-frame" data-draw style="--d:0s" stroke-width="1" pathLength="1" d="M14 32 L14 14 L32 14"/>
+          <path class="hero-frame" data-draw style="--d:.05s" stroke-width="1" pathLength="1" d="M386 32 L386 14 L368 14"/>
+          <path class="hero-frame" data-draw style="--d:.05s" stroke-width="1" pathLength="1" d="M14 368 L14 386 L32 386"/>
+          <path class="hero-frame" data-draw style="--d:.05s" stroke-width="1" pathLength="1" d="M386 368 L386 386 L368 386"/>
 
-          <!-- assembly axis -->
-          <line class="hero-axis" x1="200" y1="118" x2="200" y2="330" stroke-width="1.2"/>
-
-          <!-- abstract stack: six iso slabs that spread up the axis on hover,
-               and turn slowly about the centerline while apart -->
+          <!-- flower-of-life rosette + hexagram — blooms outward on hover -->
           <g class="hero-parts">
-            <g class="hero-part" data-dx="0" data-dy="0" data-fade style="--d:.3s">
-              <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 293 L110 248 L110 270 L200 315 Z"/>
-              <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 293 L290 248 L290 270 L200 315 Z"/>
-              <path class="hero-top"  data-draw stroke-width="1.7" pathLength="1" d="M200 203 L290 248 L200 293 L110 248 Z"/>
-            </g>
-            <g class="hero-part" data-dx="0" data-dy="-24" data-fade style="--d:.42s">
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 265 L126 228 L126 248 L200 285 Z"/>
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 265 L274 228 L274 248 L200 285 Z"/>
-              <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 191 L274 228 L200 265 L126 228 Z"/>
-            </g>
-            <g class="hero-part" data-dx="0" data-dy="-50" data-fade style="--d:.54s">
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 237 L142 208 L142 228 L200 257 Z"/>
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 237 L258 208 L258 228 L200 257 Z"/>
-              <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 179 L258 208 L200 237 L142 208 Z"/>
-            </g>
-            <g class="hero-part" data-dx="0" data-dy="-78" data-fade style="--d:.66s">
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 210 L156 188 L156 208 L200 232 Z"/>
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 210 L244 188 L244 208 L200 232 Z"/>
-              <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 166 L244 188 L200 210 L156 188 Z"/>
-            </g>
-            <g class="hero-part" data-dx="0" data-dy="-108" data-fade style="--d:.78s">
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 183 L170 168 L170 188 L200 203 Z"/>
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 183 L230 168 L230 188 L200 203 Z"/>
-              <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 153 L230 168 L200 183 L170 168 Z"/>
-            </g>
-            <g class="hero-part" data-dx="0" data-dy="-140" data-fade style="--d:.9s">
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 158 L180 148 L180 168 L200 178 Z"/>
-              <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 158 L220 148 L220 168 L200 178 Z"/>
-              <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 138 L220 148 L200 158 L180 148 Z"/>
-            </g>
+            <g class="hero-part" data-dx="0.0" data-dy="0.0" data-fade style="--d:0.30s"><circle class="hero-ring" data-draw pathLength="1" cx="200.0" cy="200.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="0.0" data-dy="-46.0" data-fade style="--d:0.43s"><circle class="hero-ring" data-draw pathLength="1" cx="200.0" cy="158.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="39.8" data-dy="-23.0" data-fade style="--d:0.45s"><circle class="hero-ring" data-draw pathLength="1" cx="236.4" cy="179.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="39.8" data-dy="23.0" data-fade style="--d:0.46s"><circle class="hero-ring" data-draw pathLength="1" cx="236.4" cy="221.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="0.0" data-dy="46.0" data-fade style="--d:0.48s"><circle class="hero-ring" data-draw pathLength="1" cx="200.0" cy="242.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-39.8" data-dy="23.0" data-fade style="--d:0.49s"><circle class="hero-ring" data-draw pathLength="1" cx="163.6" cy="221.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-39.8" data-dy="-23.0" data-fade style="--d:0.42s"><circle class="hero-ring" data-draw pathLength="1" cx="163.6" cy="179.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="42.0" data-dy="-72.7" data-fade style="--d:0.58s"><circle class="hero-ring" data-draw pathLength="1" cx="236.4" cy="137.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="84.0" data-dy="0.0" data-fade style="--d:0.59s"><circle class="hero-ring" data-draw pathLength="1" cx="272.7" cy="200.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="42.0" data-dy="72.7" data-fade style="--d:0.61s"><circle class="hero-ring" data-draw pathLength="1" cx="236.4" cy="263.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-42.0" data-dy="72.7" data-fade style="--d:0.62s"><circle class="hero-ring" data-draw pathLength="1" cx="163.6" cy="263.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-84.0" data-dy="0.0" data-fade style="--d:0.64s"><circle class="hero-ring" data-draw pathLength="1" cx="127.3" cy="200.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-42.0" data-dy="-72.7" data-fade style="--d:0.56s"><circle class="hero-ring" data-draw pathLength="1" cx="163.6" cy="137.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="0.0" data-dy="-96.0" data-fade style="--d:0.70s"><circle class="hero-ring" data-draw pathLength="1" cx="200.0" cy="116.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="83.1" data-dy="-48.0" data-fade style="--d:0.71s"><circle class="hero-ring" data-draw pathLength="1" cx="272.7" cy="158.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="83.1" data-dy="48.0" data-fade style="--d:0.73s"><circle class="hero-ring" data-draw pathLength="1" cx="272.7" cy="242.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="0.0" data-dy="96.0" data-fade style="--d:0.74s"><circle class="hero-ring" data-draw pathLength="1" cx="200.0" cy="284.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-83.1" data-dy="48.0" data-fade style="--d:0.76s"><circle class="hero-ring" data-draw pathLength="1" cx="127.3" cy="242.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="-83.1" data-dy="-48.0" data-fade style="--d:0.68s"><circle class="hero-ring" data-draw pathLength="1" cx="127.3" cy="158.0" r="42.0"/></g>
+            <g class="hero-part" data-dx="0.0" data-dy="-74.0" data-fade style="--d:0.80s"><path class="hero-star" data-draw pathLength="1" d="M183.1 150.8 L200.0 72.0 L216.9 150.8 Z"/></g>
+            <g class="hero-part" data-dx="64.1" data-dy="-37.0" data-fade style="--d:0.83s"><path class="hero-star" data-draw pathLength="1" d="M234.1 160.8 L310.9 136.0 L251.0 190.1 Z"/></g>
+            <g class="hero-part" data-dx="64.1" data-dy="37.0" data-fade style="--d:0.86s"><path class="hero-star" data-draw pathLength="1" d="M251.0 209.9 L310.9 264.0 L234.1 239.2 Z"/></g>
+            <g class="hero-part" data-dx="0.0" data-dy="74.0" data-fade style="--d:0.89s"><path class="hero-star" data-draw pathLength="1" d="M216.9 249.2 L200.0 328.0 L183.1 249.2 Z"/></g>
+            <g class="hero-part" data-dx="-64.1" data-dy="37.0" data-fade style="--d:0.92s"><path class="hero-star" data-draw pathLength="1" d="M165.9 239.2 L89.1 264.0 L149.0 209.9 Z"/></g>
+            <g class="hero-part" data-dx="-64.1" data-dy="-37.0" data-fade style="--d:0.95s"><path class="hero-star" data-draw pathLength="1" d="M149.0 190.1 L89.1 136.0 L165.9 160.8 Z"/></g>
+            <g class="hero-part" data-dx="0" data-dy="0" data-fade style="--d:1.0s"><path class="hero-hex" data-draw pathLength="1" d="M200 170 L226 185 L226 215 L200 230 L174 215 L174 185 Z"/></g>
           </g>
 
           <text data-fade x="20" y="30" font-size="10" style="--d:1.15s">JM&#8209;001</text>
@@ -377,6 +371,6 @@
   <a href="#personal"><span class="tab-num">03</span>Personal</a>
 </nav>
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>
