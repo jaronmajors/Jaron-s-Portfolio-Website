@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body class="has-hero">
 
@@ -72,33 +72,35 @@
           <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M14 368 L14 386 L32 386"/>
           <path data-draw data-c="line" style="--d:.05s" stroke-width="1.2" pathLength="1" d="M386 368 L386 386 L368 386"/>
 
-          <!-- ghost of the assembled cube, and the three explosion axes -->
-          <path class="hero-ghost" stroke-width="1.1" d="M200 150 L280 196 L280 282 L200 328 L120 282 L120 196 Z"/>
-          <g class="hero-axis" stroke-width="1.1">
-            <path class="dash" d="M200 210 L200 92"/>
-            <path d="M194 104 L200 92 L206 104"/>
-            <path class="dash" d="M188 232 L92 288"/>
-            <path d="M100 279 L92 288 L103 293"/>
-            <path class="dash" d="M212 232 L308 288"/>
-            <path d="M300 279 L308 288 L297 293"/>
-          </g>
+          <!-- assembly axis -->
+          <line class="hero-axis" x1="200" y1="150" x2="200" y2="332" stroke-width="1.2"/>
 
-          <!-- inner core, revealed and slowly spinning when the shell is apart -->
-          <g class="hero-core">
-            <path data-draw style="--d:.9s" stroke-width="1.3" pathLength="1" d="M200 200 L234 220 L200 240 L166 220 Z"/>
-            <path data-draw style="--d:1s"  stroke-width="1.3" pathLength="1" d="M200 240 L166 220 L166 258 L200 278 Z"/>
-            <path data-draw style="--d:1.05s" stroke-width="1.3" pathLength="1" d="M200 240 L234 220 L234 258 L200 278 Z"/>
+          <!-- stacked assembly: distinct parts that slide apart along the axis -->
+          <g class="hero-part" data-dx="0" data-dy="0" data-fade style="--d:.3s">
+            <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 300 L112 256 L112 274 L200 318 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 300 L288 256 L288 274 L200 318 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.7" pathLength="1" d="M200 212 L288 256 L200 300 L112 256 Z"/>
           </g>
-
-          <!-- outer shell: three faces that burst apart along their own axes -->
-          <g class="hero-part" data-dx="-34" data-dy="20" data-fade style="--d:.5s">
-            <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 242 L120 196 L120 282 L200 328 Z"/>
+          <g class="hero-part" data-dx="0" data-dy="-34" data-fade style="--d:.45s">
+            <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 227 L170 212 L170 256 L200 271 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 227 L230 212 L230 256 L200 271 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.7" pathLength="1" d="M200 197 L230 212 L200 227 L170 212 Z"/>
           </g>
-          <g class="hero-part" data-dx="34" data-dy="20" data-fade style="--d:.65s">
-            <path class="hero-face" data-draw stroke-width="1.7" pathLength="1" d="M200 242 L280 196 L280 282 L200 328 Z"/>
+          <g class="hero-part" data-dx="0" data-dy="-66" data-fade style="--d:.6s">
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 223 L158 202 L158 212 L200 233 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 223 L242 202 L242 212 L200 233 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 181 L242 202 L200 223 L158 202 Z"/>
+            <ellipse class="hero-hole" cx="200" cy="202" rx="13" ry="6.5"/>
           </g>
-          <g class="hero-part" data-dx="0" data-dy="-42" data-fade style="--d:.8s">
-            <path class="hero-top" data-draw stroke-width="1.7" pathLength="1" d="M200 150 L280 196 L200 242 L120 196 Z"/>
+          <g class="hero-part" data-dx="0" data-dy="-94" data-fade style="--d:.75s">
+            <path class="hero-face" data-draw stroke-width="1.5" pathLength="1" d="M200 207 L180 197 L180 202 L200 212 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.5" pathLength="1" d="M200 207 L220 197 L220 202 L200 212 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.5" pathLength="1" d="M200 187 L220 197 L200 207 L180 197 Z"/>
+          </g>
+          <g class="hero-part" data-dx="0" data-dy="-124" data-fade style="--d:.9s">
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M170 192 L200 200 L200 213 L170 205 Z"/>
+            <path class="hero-face" data-draw stroke-width="1.6" pathLength="1" d="M200 200 L230 192 L230 205 L200 213 Z"/>
+            <path class="hero-top"  data-draw stroke-width="1.6" pathLength="1" d="M200 168 L230 176 L230 192 L200 200 L170 192 L170 176 Z"/>
           </g>
 
           <text data-fade x="20" y="30" font-size="10" style="--d:1.15s">JM&#8209;001</text>
@@ -368,6 +370,6 @@
   <a href="#personal"><span class="tab-num">03</span>Personal</a>
 </nav>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
