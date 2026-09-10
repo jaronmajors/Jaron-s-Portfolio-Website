@@ -409,14 +409,22 @@ body.has-hero .titleblock.is-stuck{
   animation:hero-floaty 7s ease-in-out infinite;
 }
 .hero__figure [data-c="line"]{ stroke:var(--line); }
+.hero__figure [data-c="blue"]{ stroke:var(--blue); }
 .hero__figure .hero-face{ fill:var(--surface); }
 .hero__figure .hero-top{ fill:var(--blue-pale); }
-.hero__figure .hero-centerline{
-  stroke:var(--blue);
-  stroke-dasharray:3 5;
+.hero__figure .hero-core path{ fill:none; stroke:var(--blue); }
+.hero__figure .hero-ghost{
+  stroke:var(--line);
+  stroke-dasharray:4 4;
   opacity:0;
-  transition:opacity .4s var(--ease);
+  transition:opacity .45s var(--ease);
 }
+.hero__figure .hero-axis{
+  stroke:var(--accent);
+  opacity:0;
+  transition:opacity .45s var(--ease);
+}
+.hero__figure .hero-axis .dash{ stroke-dasharray:3 5; }
 .hero__figure text{
   font-family:var(--font-mono);
   fill:var(--muted);
@@ -439,17 +447,18 @@ body.has-hero .titleblock.is-stuck{
   0%,100%{ transform:translateY(0) rotate(-0.35deg); }
   50%{ transform:translateY(-10px) rotate(0.35deg); }
 }
+@keyframes hero-core-spin{ to{ transform:rotate(360deg); } }
 
-/* Exploded view — parts separate on hover / tap (see .is-exploded in JS) */
-.hero__figure .hero-part{ transition:transform .6s var(--ease); }
-.hero__figure:hover  .hero-part[data-lvl="1"],
-.hero__figure.is-exploded .hero-part[data-lvl="1"]{ transform:translate(0, -22px); }
-.hero__figure:hover  .hero-part[data-lvl="2"],
-.hero__figure.is-exploded .hero-part[data-lvl="2"]{ transform:translate(0, -48px); }
-.hero__figure:hover  .hero-part[data-lvl="3"],
-.hero__figure.is-exploded .hero-part[data-lvl="3"]{ transform:translate(0, -80px); }
-.hero__figure:hover .hero-centerline,
-.hero__figure.is-exploded .hero-centerline{ opacity:.5; }
+/* Exploded view — JS tweens each shell piece's SVG transform attribute
+   (works in every SVG renderer). These rules reveal the guide lines and
+   spin up the inner core while the shell is apart. */
+.hero__figure.is-exploded .hero-ghost{ opacity:.4; }
+.hero__figure.is-exploded .hero-axis{ opacity:.5; }
+.hero__figure.is-exploded .hero-core{
+  animation:hero-core-spin 12s linear infinite;
+  transform-box:fill-box;
+  transform-origin:center;
+}
 
 .hero__scroll{
   align-self:center;
@@ -489,8 +498,9 @@ body.has-hero .titleblock.is-stuck{
   .hero__figure svg{ animation:none; }
   .hero__figure [data-draw]{ stroke-dashoffset:0; animation:none; }
   .hero__figure [data-fade]{ opacity:1; animation:none; }
-  .hero__figure .hero-part{ transition:none; }
-  .hero__figure .hero-centerline{ transition:none; }
+  .hero__figure .hero-ghost,
+  .hero__figure .hero-axis{ transition:none; }
+  .hero__figure.is-exploded .hero-core{ animation:none; }
   .hero__scroll-line::after{ animation:none; opacity:0; }
 }
 
