@@ -440,12 +440,16 @@ body.has-hero .titleblock.is-stuck{
   50%{ transform:translateY(-10px) rotate(0.35deg); }
 }
 
-/* Exploded view — parts separate when the figure is hovered */
+/* Exploded view — parts separate on hover / tap (see .is-exploded in JS) */
 .hero__figure .hero-part{ transition:transform .6s var(--ease); }
-.hero__figure:hover .hero-part[data-lvl="1"]{ transform:translateY(-22px); }
-.hero__figure:hover .hero-part[data-lvl="2"]{ transform:translateY(-48px); }
-.hero__figure:hover .hero-part[data-lvl="3"]{ transform:translateY(-80px); }
-.hero__figure:hover .hero-centerline{ opacity:.5; }
+.hero__figure:hover  .hero-part[data-lvl="1"],
+.hero__figure.is-exploded .hero-part[data-lvl="1"]{ transform:translate(0, -22px); }
+.hero__figure:hover  .hero-part[data-lvl="2"],
+.hero__figure.is-exploded .hero-part[data-lvl="2"]{ transform:translate(0, -48px); }
+.hero__figure:hover  .hero-part[data-lvl="3"],
+.hero__figure.is-exploded .hero-part[data-lvl="3"]{ transform:translate(0, -80px); }
+.hero__figure:hover .hero-centerline,
+.hero__figure.is-exploded .hero-centerline{ opacity:.5; }
 
 .hero__scroll{
   align-self:center;

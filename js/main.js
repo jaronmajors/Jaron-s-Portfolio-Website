@@ -59,20 +59,32 @@ if (stickyHeader) {
 }
 
 // ---------------------------------------------------------------------------
-// Gentle pointer parallax on the hero figure (desktop, motion allowed)
+// Hero figure — exploded view on hover, tap/click to lock it open
 // ---------------------------------------------------------------------------
 const heroFigure = document.querySelector('.hero__figure');
-if (
-  heroFigure &&
-  window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
-  !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-) {
-  window.addEventListener('pointermove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 14;
-    const y = (e.clientY / window.innerHeight - 0.5) * 14;
-    heroFigure.style.setProperty('--px', x.toFixed(1) + 'px');
-    heroFigure.style.setProperty('--py', y.toFixed(1) + 'px');
-  }, { passive: true });
+if (heroFigure) {
+  let locked = false;
+  heroFigure.addEventListener('pointerenter', () => heroFigure.classList.add('is-exploded'));
+  heroFigure.addEventListener('pointerleave', () => {
+    if (!locked) heroFigure.classList.remove('is-exploded');
+  });
+  heroFigure.addEventListener('click', () => {
+    locked = !locked;
+    heroFigure.classList.toggle('is-exploded', locked);
+  });
+
+  // Gentle pointer parallax (desktop, motion allowed)
+  if (
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    window.addEventListener('pointermove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 14;
+      const y = (e.clientY / window.innerHeight - 0.5) * 14;
+      heroFigure.style.setProperty('--px', x.toFixed(1) + 'px');
+      heroFigure.style.setProperty('--py', y.toFixed(1) + 'px');
+    }, { passive: true });
+  }
 }
 
 // ---------------------------------------------------------------------------
